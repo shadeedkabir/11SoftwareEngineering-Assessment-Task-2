@@ -63,6 +63,43 @@ questions = [
         "Mexico",
         "Portugal"
     ]
+},
+
+{
+    "image":"images/france.png",
+    "correct":"France",
+    "options":[
+        "France",
+        "Italy",
+        "Belgium",
+        "Netherlands"
+    ]
+},
+
+{
+    "image":"images/germany.png",
+    "correct":"Germany",
+    "options":[
+        "Germany",
+        "Belgium",
+        "Austria",
+        "Switzerland"
+    ]
+},
+
+{
+    "image":"images/india.png",
+    "correct":"India",
+    "options":[
+        "India",
+        "Pakistan",
+        "Bangladesh",
+        "Sri Lanka"
+    ]
+}
+
+{
+    "image":images
 }
 
 ]
