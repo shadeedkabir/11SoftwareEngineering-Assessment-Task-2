@@ -9,3 +9,38 @@ import os
 root = Tk()
 root.title("Worlds Flag Quiz")
 root.geometry("900x600")
+root.configure(bg="#89E5FF")
+root.resizable(False, False)
+
+# Global Variables
+score = 0
+question_number = 0
+current_question = {}
+flag_photo = None
+
+# Questions
+questions = [
+
+{
+    "image":"images/australia.png",
+    "correct":"Australia",
+    "options":[
+        "Australia", 
+        "New Zealand", 
+        "Fiji", 
+        "United Kingdom",
+    ]
+},
+
+{
+    "image":"images/japan.png",
+    "correct":"Japan",
+    "options":[
+        "China",
+        "Japan",
+        "South Korea",
+        "Vietnam"
+    ]
+}
+
+]
