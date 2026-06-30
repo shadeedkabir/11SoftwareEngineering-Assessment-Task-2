@@ -41,6 +41,19 @@ questions = [
         "South Korea",
         "Vietnam"
     ]
-}
+},
+
+{
+    "image":"images/canada.png",
+    "correct":"Canada",
+    "options":[
+        "Canada",
+        "USA",
+        "Austria",
+        "France"
+    ]
+},
+
+{}
 
 ]
