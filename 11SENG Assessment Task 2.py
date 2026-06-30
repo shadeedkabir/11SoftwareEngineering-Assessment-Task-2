@@ -96,10 +96,42 @@ questions = [
         "Bangladesh",
         "Sri Lanka"
     ]
-}
+},
 
 {
-    "image":images
+    "image":"images/italy.png",
+    "correct":"Italy",
+    "options":[
+        "Italy",
+        "France",
+        "Ireland",
+        "Mexico"
+    ]
+},
+
+{
+    "image":"images/china.png",
+    "correct":"China",
+    "options":[
+        "China",
+        "Vietnam",
+        "Japan",
+        "South Korea"
+    ]
+},
+
+{
+    "image":"images/usa.png",
+    "correct":"United States",
+    "options":[
+        "United States",
+        "Australia",
+        "Liberia",
+        "United Kingdom"
+    ]
 }
 
 ]
+
+# Shuffle questions
+random.shuffle(questions)
