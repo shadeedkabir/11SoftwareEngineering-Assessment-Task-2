@@ -54,6 +54,14 @@ questions = [
     ]
 },
 
-{}
+{
+    "image":"images/brazil.png",
+    "correct":"Brazil",
+    "options":[
+        "Brazil",
+        "Argentina",
+        "Mexico",
+        "Portugal"
+}
 
 ]
