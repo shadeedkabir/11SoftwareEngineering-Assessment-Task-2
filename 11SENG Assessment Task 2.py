@@ -302,3 +302,13 @@ def display_question():
 
     # Get the current question
     current_question = questions[question_number]
+
+    # Heading
+
+    heading = Label(
+        root,
+        text=f"Question {question_number + 1} of {len(questions)}",
+        font=("Arial",18,"bold"),
+        bg="#B9E6FF"
+    )
+
