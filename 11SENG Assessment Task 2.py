@@ -137,7 +137,7 @@ questions = [
 random.shuffle(questions)
 
 # Functions
-def clear_screebn():
+def clear_screen():
     for widget in root.winfo_children():
         widget.destroy()
 
@@ -166,3 +166,77 @@ def load_flag(image_path):
     except:
 
         return None
+    
+
+# Instructions Page
+
+def instructions_page():
+
+    clear_screen()
+
+    title = Label(
+        root,
+        text="Instructions",
+        font=("Arial",30,"bold"),
+        bg="#B9E6FF"
+    )
+        
+    title.pack(pady=20)
+
+    instructions = Label(
+        root,
+        text="""• A flag will appear on the screen.
+
+• Choose the correct country.
+
+• There are four answer choices.
+
+• Each correct answer earns 1 point.
+
+• Your total score is shown at the end.
+
+• Good luck!""",
+        font=("Arial",16),
+        justify=LEFT,
+        bg="#B9E6FF"
+    )
+    instructions.pack(pady=20)
+
+    begin_button = Button(
+        root,
+        text="BEGIN QUIZ",
+        width=20,
+        font=("Arial",14),
+        command=start_quiz
+    )
+
+    begin_button.pack(pady=15)
+
+    back_button = Button(
+        root,
+        text="BACK",
+        width=20,
+        font=("Arial",14),
+        command=welcome_page
+    )
+
+    back_button.pack()
+
+
+# Welcome Page
+
+def welcome_page():
+
+    clear_screen()
+
+    # Title
+
+    title = Label(
+        root,
+        text="World\nFlags Quiz",
+        font=("Arial",34,"bold"),
+        bg="#B9E6FF",
+        fg="navy"
+    )
+
+    title.pack(pady=40)
