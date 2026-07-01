@@ -135,3 +135,5 @@ questions = [
 
 # Shuffle questions
 random.shuffle(questions)
+
+# Functions
