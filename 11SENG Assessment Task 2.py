@@ -312,3 +312,15 @@ def display_question():
         bg="#B9E6FF"
     )
 
+    heading.pack(pady=10)
+
+    # Score
+
+    score_label = Label(
+        root,
+        text=f"Score: {score}",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    score_label.pack()
