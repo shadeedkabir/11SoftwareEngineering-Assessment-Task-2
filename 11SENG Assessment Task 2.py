@@ -137,3 +137,32 @@ questions = [
 random.shuffle(questions)
 
 # Functions
+def clear_screebn():
+    for widget in root.winfo_children():
+        widget.destroy()
+
+
+# Closing the program
+def exit_program():
+    root.destroy()
+
+
+# Loads and resizes the flag image
+def load_flag(image_path):
+
+    global flag_photo
+
+    try:
+
+        image = Image.open(image_path)
+
+        # Resizing flag to fit neatly on the screen
+        image = image.resize((320, 200))
+
+        flag_photo = ImageTk.PhotoImage(image)
+
+        return flag_photo
+
+    except:
+
+        return None
