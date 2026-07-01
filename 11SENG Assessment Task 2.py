@@ -461,3 +461,80 @@ def next_question():
         results_page()
 
 
+# Results Page
+
+def results_page():
+
+    clear_screen()
+
+    percentage = (score / len(questions)) * 100
+
+    if percentage >= 80:
+
+        message = "Excellent Work!"
+
+    elif percentage >= 50:
+
+        message = "Good Job!"
+
+    else:
+
+        message = "Keep Practising!"
+
+    title = Label(
+        root,
+        text="Quiz Complete!",
+        font=("Arial",30,"bold"),
+        bg="#B9E6FF"
+    )
+
+    title.pack(pady=20)
+
+    final_score = Label(
+        root,
+        text=f"You scored {score} out of {len(questions)}",
+        font=("Arial",20),
+        bg="#B9E6FF"
+    )
+
+    final_score.pack(pady=10)
+
+    percentage_label = Label(
+        root,
+        text=f"Percentage: {percentage:.0f}%",
+        font=("Arial",20),
+        bg="#B9E6FF"
+    )
+
+    percentage_label.pack(pady=10)
+
+    message_label = Label(
+        root,
+        text=message,
+        font=("Arial",24,"bold"),
+        fg="navy",
+        bg="#B9E6FF"
+    )
+
+    message_label.pack(pady=30)
+
+    play_again = Button(
+        root,
+        text="PLAY AGAIN",
+        width=18,
+        font=("Arial",14),
+        command=start_quiz
+    )
+
+    play_again.pack(pady=10)
+
+    exit_button = Button(
+        root,
+        text="EXIT",
+        width=18,
+        font=("Arial",14),
+        command=exit_program
+    )
+
+    exit_button.pack()
+
