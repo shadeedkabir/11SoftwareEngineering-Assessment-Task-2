@@ -384,3 +384,61 @@ def check_answer(answer):
         feedback_page(False)
 
 
+# Feedback Page
+def feedback_page(correct):
+
+    clear_screen()
+
+    if correct:
+
+        result = Label(
+            root,
+            text="✔ Correct!",
+            font=("Arial",30,"bold"),
+            fg="green",
+            bg="#B9E6FF"
+        )
+
+        result.pack(pady=30)
+
+    else:
+
+        result = Label(
+            root,
+            text="✘ Incorrect!",
+            font=("Arial",30,"bold"),
+            fg="red",
+            bg="#B9E6FF"
+        )
+
+        result.pack(pady=20)
+
+        correct_answer = Label(
+            root,
+            text="The correct answer was:\n" + current_question["correct"],
+            font=("Arial",18),
+            bg="#B9E6FF"
+        )
+
+        correct_answer.pack(pady=10)
+
+    score_label = Label(
+        root,
+        text=f"Current Score: {score}",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    score_label.pack(pady=20)
+
+    next_button = Button(
+        root,
+        text="NEXT QUESTION",
+        width=20,
+        font=("Arial",14),
+        command=next_question
+    )
+
+    next_button.pack()
+
+
