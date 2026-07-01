@@ -240,3 +240,39 @@ def welcome_page():
     )
 
     title.pack(pady=40)
+
+    # Description
+
+    description = Label(
+        root,
+        text="Test your knowledge of flags from around the world!\n"
+             "Can you identify every country correctly?",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    description.pack(pady=20)
+
+    # Buttons
+
+    next_button = Button(
+        root,
+        text="NEXT",
+        width=18,
+        font=("Arial",14),
+        command=instructions_page
+    )
+
+    next_button.pack(pady=15)
+
+    exit_button = Button(
+        root,
+        text="EXIT",
+        width=18,
+        font=("Arial",14),
+        command=exit_program
+    )
+
+    exit_button.pack()
+
+
