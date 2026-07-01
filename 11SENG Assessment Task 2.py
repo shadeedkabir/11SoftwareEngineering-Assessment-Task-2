@@ -324,3 +324,29 @@ def display_question():
     )
 
     score_label.pack()
+
+    # Loading Flag
+
+    flag_photo = load_flag(current_question["image"])
+
+    if flag_photo != None:
+
+        flag_label = Label(
+            root,
+            image=flag_photo,
+            bg="#B9E6FF"
+        )
+
+        flag_label.pack(pady=20)
+
+    else:
+
+        missing = Label(
+            root,
+            text="Image could not be loaded.",
+            font=("Arial",16),
+            fg="red",
+            bg="#B9E6FF"
+        )
+
+        missing.pack(pady=20)
