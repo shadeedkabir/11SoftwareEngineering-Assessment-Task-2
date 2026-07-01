@@ -350,3 +350,18 @@ def display_question():
         )
 
         missing.pack(pady=20)
+
+    # Answer Buttons
+
+    for option in current_question["options"]:
+
+        answer_button = Button(
+            root,
+            text=option,
+            width=25,
+            font=("Arial",14),
+            command=lambda answer=option: check_answer(answer)
+        )
+
+        answer_button.pack(pady=5)
+
