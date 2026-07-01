@@ -276,3 +276,29 @@ def welcome_page():
     exit_button.pack()
 
 
+# Start Quiz
+
+def start_quiz():
+
+    global score
+    global question_number
+
+    score = 0
+    question_number = 0
+
+    random.shuffle(questions)
+
+    display_question()
+
+
+# Display Question
+
+def display_question():
+
+    global current_question
+    global flag_photo
+
+    clear_screen()
+
+    # Get the current question
+    current_question = questions[question_number]
