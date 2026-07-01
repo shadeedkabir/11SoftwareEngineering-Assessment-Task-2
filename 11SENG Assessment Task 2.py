@@ -1,13 +1,11 @@
 # Imports
 from tkinter import *
-from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
-import os
 
 # Windows
 root = Tk()
-root.title("Worlds Flag Quiz")
+root.title("World Flags Quiz")
 root.geometry("900x600")
 root.configure(bg="#89E5FF")
 root.resizable(False, False)
