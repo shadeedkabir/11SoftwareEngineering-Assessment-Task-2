@@ -240,3 +240,307 @@ def welcome_page():
     )
 
     title.pack(pady=40)
+
+    # Description
+
+    description = Label(
+        root,
+        text="Test your knowledge of flags from around the world!\n"
+             "Can you identify every country correctly?",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    description.pack(pady=20)
+
+    # Buttons
+
+    next_button = Button(
+        root,
+        text="NEXT",
+        width=18,
+        font=("Arial",14),
+        command=instructions_page
+    )
+
+    next_button.pack(pady=15)
+
+    exit_button = Button(
+        root,
+        text="EXIT",
+        width=18,
+        font=("Arial",14),
+        command=exit_program
+    )
+
+    exit_button.pack()
+
+
+# Start Quiz
+
+def start_quiz():
+
+    global score
+    global question_number
+
+    score = 0
+    question_number = 0
+
+    random.shuffle(questions)
+
+    display_question()
+
+
+# Display Question
+
+def display_question():
+
+    global current_question
+    global flag_photo
+
+    clear_screen()
+
+    # Get the current question
+    current_question = questions[question_number]
+
+    # Heading
+
+    heading = Label(
+        root,
+        text=f"Question {question_number + 1} of {len(questions)}",
+        font=("Arial",18,"bold"),
+        bg="#B9E6FF"
+    )
+
+    heading.pack(pady=10)
+
+    # Score
+
+    score_label = Label(
+        root,
+        text=f"Score: {score}",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    score_label.pack()
+
+    # Loading Flag
+
+    flag_photo = load_flag(current_question["image"])
+
+    if flag_photo != None:
+
+        flag_label = Label(
+            root,
+            image=flag_photo,
+            bg="#B9E6FF"
+        )
+
+        flag_label.pack(pady=20)
+
+    else:
+
+        missing = Label(
+            root,
+            text="Image could not be loaded.",
+            font=("Arial",16),
+            fg="red",
+            bg="#B9E6FF"
+        )
+
+        missing.pack(pady=20)
+
+    # Answer Buttons
+
+    for option in current_question["options"]:
+
+        answer_button = Button(
+            root,
+            text=option,
+            width=25,
+            font=("Arial",14),
+            command=lambda answer=option: check_answer(answer)
+        )
+
+        answer_button.pack(pady=5)
+
+
+# Check Answer
+
+def check_answer(answer):
+
+    global score
+
+    # Check if the user's answer is correct
+    if answer == current_question["correct"]:
+
+        score = score + 1
+
+        feedback_page(True)
+
+    else:
+
+        feedback_page(False)
+
+
+# Feedback Page
+def feedback_page(correct):
+
+    clear_screen()
+
+    if correct:
+
+        result = Label(
+            root,
+            text="✔ Correct!",
+            font=("Arial",30,"bold"),
+            fg="green",
+            bg="#B9E6FF"
+        )
+
+        result.pack(pady=30)
+
+    else:
+
+        result = Label(
+            root,
+            text="✘ Incorrect!",
+            font=("Arial",30,"bold"),
+            fg="red",
+            bg="#B9E6FF"
+        )
+
+        result.pack(pady=20)
+
+        correct_answer = Label(
+            root,
+            text="The correct answer was:\n" + current_question["correct"],
+            font=("Arial",18),
+            bg="#B9E6FF"
+        )
+
+        correct_answer.pack(pady=10)
+
+    score_label = Label(
+        root,
+        text=f"Current Score: {score}",
+        font=("Arial",16),
+        bg="#B9E6FF"
+    )
+
+    score_label.pack(pady=20)
+
+    next_button = Button(
+        root,
+        text="NEXT QUESTION",
+        width=20,
+        font=("Arial",14),
+        command=next_question
+    )
+
+    next_button.pack()
+
+
+# Next Question
+
+def next_question():
+
+    global question_number
+
+    question_number = question_number + 1
+
+    # If there are still questions left
+    if question_number < len(questions):
+
+        display_question()
+
+    # Otherwise show results
+    else:
+
+        results_page()
+
+
+# Results Page
+
+def results_page():
+
+    clear_screen()
+
+    percentage = (score / len(questions)) * 100
+
+    if percentage >= 80:
+
+        message = "Excellent Work!"
+
+    elif percentage >= 50:
+
+        message = "Good Job!"
+
+    else:
+
+        message = "Keep Practising!"
+
+    title = Label(
+        root,
+        text="Quiz Complete!",
+        font=("Arial",30,"bold"),
+        bg="#B9E6FF"
+    )
+
+    title.pack(pady=20)
+
+    final_score = Label(
+        root,
+        text=f"You scored {score} out of {len(questions)}",
+        font=("Arial",20),
+        bg="#B9E6FF"
+    )
+
+    final_score.pack(pady=10)
+
+    percentage_label = Label(
+        root,
+        text=f"Percentage: {percentage:.0f}%",
+        font=("Arial",20),
+        bg="#B9E6FF"
+    )
+
+    percentage_label.pack(pady=10)
+
+    message_label = Label(
+        root,
+        text=message,
+        font=("Arial",24,"bold"),
+        fg="navy",
+        bg="#B9E6FF"
+    )
+
+    message_label.pack(pady=30)
+
+    play_again = Button(
+        root,
+        text="PLAY AGAIN",
+        width=18,
+        font=("Arial",14),
+        command=start_quiz
+    )
+
+    play_again.pack(pady=10)
+
+    exit_button = Button(
+        root,
+        text="EXIT",
+        width=18,
+        font=("Arial",14),
+        command=exit_program
+    )
+
+    exit_button.pack()
+
+
+# Start The Program
+
+welcome_page()
+
+root.mainloop()
