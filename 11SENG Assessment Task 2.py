@@ -538,3 +538,9 @@ def results_page():
 
     exit_button.pack()
 
+
+# Start The Program
+
+welcome_page()
+
+root.mainloop()
