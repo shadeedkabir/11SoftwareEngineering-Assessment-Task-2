@@ -365,3 +365,22 @@ def display_question():
 
         answer_button.pack(pady=5)
 
+
+# Check Answer
+
+def check_answer(answer):
+
+    global score
+
+    # Check if the user's answer is correct
+    if answer == current_question["correct"]:
+
+        score = score + 1
+
+        feedback_page(True)
+
+    else:
+
+        feedback_page(False)
+
+
