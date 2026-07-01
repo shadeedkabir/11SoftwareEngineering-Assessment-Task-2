@@ -442,3 +442,22 @@ def feedback_page(correct):
     next_button.pack()
 
 
+# Next Question
+
+def next_question():
+
+    global question_number
+
+    question_number = question_number + 1
+
+    # If there are still questions left
+    if question_number < len(questions):
+
+        display_question()
+
+    # Otherwise show results
+    else:
+
+        results_page()
+
+
